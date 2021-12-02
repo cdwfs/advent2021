@@ -1,8 +1,5 @@
 const std = @import("std");
 const Allocator = std.mem.Allocator;
-const assert = std.debug.assert;
-const expect = std.testing.expect;
-const print = std.debug.print;
 const List = std.ArrayList;
 const Map = std.AutoHashMap;
 const StrMap = std.StringHashMap;
@@ -16,9 +13,9 @@ const data = @embedFile("../data/day01.txt");
 
 fn parseInput(inputText:[]const u8) std.ArrayList(u32) {
     var list = std.ArrayList(u32).init(std.testing.allocator);
-    var nums = std.mem.tokenize(u8, inputText, "\r\n");
+    var nums = tokenize(u8, inputText, "\r\n");
     while(nums.next()) |numStr| {
-        const num = std.fmt.parseInt(u32, numStr, 10) catch unreachable;
+        const num = parseInt(u32, numStr, 10) catch unreachable;
         list.append(num) catch unreachable;
     }
     return list;
@@ -46,11 +43,11 @@ pub fn main() !void {
     defer inputList.deinit();
 
     const part1 = countIncreases(inputList, 1);
-    try expect(part1 == 1451);
+    try std.testing.expect(part1 == 1451);
     print("Part 1: {d}\n", .{part1});
 
     const part2 = countIncreases(inputList, 3);
-    try expect(part1 == 1395);
+    try std.testing.expect(part2 == 1395);
     print("Part 2: {d}\n", .{part2});
 }
 
@@ -71,12 +68,40 @@ test "part1" {
     const testList = parseInput(testData);
     defer testList.deinit();
     const increases = countIncreases(testList, 1);
-    try expect(increases == 7);
+    try std.testing.expect(increases == 7);
 }
 
 test "part2" {
     const testList = parseInput(testData);
     defer testList.deinit();
     const increases = countIncreases(testList, 3);
-    try expect(increases == 5);
+    try std.testing.expect(increases == 5);
 }
+
+// Useful stdlib functions
+const tokenize = std.mem.tokenize;
+const split = std.mem.split;
+const indexOf = std.mem.indexOfScalar;
+const indexOfAny = std.mem.indexOfAny;
+const indexOfStr = std.mem.indexOfPosLinear;
+const lastIndexOf = std.mem.lastIndexOfScalar;
+const lastIndexOfAny = std.mem.lastIndexOfAny;
+const lastIndexOfStr = std.mem.lastIndexOfLinear;
+const trim = std.mem.trim;
+const sliceMin = std.mem.min;
+const sliceMax = std.mem.max;
+
+const parseInt = std.fmt.parseInt;
+const parseFloat = std.fmt.parseFloat;
+
+const min = std.math.min;
+const min3 = std.math.min3;
+const max = std.math.max;
+const max3 = std.math.max3;
+
+const print = std.debug.print;
+const assert = std.debug.assert;
+
+const sort = std.sort.sort;
+const asc = std.sort.asc;
+const desc = std.sort.desc;
