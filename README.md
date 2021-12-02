@@ -9,7 +9,6 @@ A list of the puzzles, and what new language/tool features I learned each day:
 
 ### [Day 1: Sonar Sweep](https://adventofcode.com/2021/day/1)
 - Basic Zig + VSCode integration
-  - Currently need to run tests manually with `zig test dayNN`; need to add a VSCode task for that
 - [Multiline string literals](https://ziglang.org/documentation/master/#Multiline-String-Literals)
   - `Selection -> Switch to Ctrl+Click for Multi-Cursor` enables `Alt`+click for column select, and `Ctrl`+click for multi-cursor
 - Tests use `try expect(expr)` to fail the test if `expr` is false. `assert(expr)` doesn't seem to have the same effect.
@@ -21,3 +20,11 @@ A list of the puzzles, and what new language/tool features I learned each day:
 - No one-line for loop over a range of integers? You have to declare and initialize an `i`, and then do `while(i < max) : (i += 1) {}`?
 - TODO: Go read more about Optionals and Errors again.
 - Declaring a variable as `const foo = 0xFFFF;` seemed to force it into comptime-only mode; giving it an explicit type was needed to avoid build errors.
+
+### [Day 2: Dive!](https://adventofcode.com/2021/day/2)
+- How to trigger tests from VSCode
+- Basic enum and struct usage
+- To unconditionally unwrap optional values, use `value.?`
+- `if` expressions (which I ultimately replaces with `switch` expressions anyway)
+- Weird comptime error when using try `expectEquals(150, myfunc(x))` is due to `expectEquals()` using the type of the first parameter to determine the second. The workaround is to use `@as(u32, 150)` to cast the expected result away from `comptime_int`, but it's a [known wart](https://github.com/ziglang/zig/issues/4437) with a few proposed fixes in the works.
+- 
