@@ -1,7 +1,7 @@
 My [Advent of Code 2021](https://adventofcode.com/2021) solutions, implemented in
 [Zig](https://www.ziglang.org/) and built using [VS Code](https://code.visualstudio.com/).
 
-_Based on the [Zig AoC template](https://github.com/SpexGuy/Zig-AoC-Template) provided by @SpexGuy_
+_Based on the [Zig AoC template](https://github.com/SpexGuy/Zig-AoC-Template) provided by [@SpexGuy](https://github.com/SpexGuy/)_
 
 ## TIL
 
