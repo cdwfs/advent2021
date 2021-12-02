@@ -11,47 +11,36 @@ const gpa = util.gpa;
 
 const data = @embedFile("../data/day01.txt");
 
-fn parseInput(inputText:[]const u8) std.ArrayList(u32) {
-    var list = std.ArrayList(u32).init(std.testing.allocator);
-    var nums = tokenize(u8, inputText, "\r\n");
-    while(nums.next()) |numStr| {
-        const num = parseInt(u32, numStr, 10) catch unreachable;
+fn parseInput(input_text: []const u8) std.ArrayList(u64) {
+    var list = std.ArrayList(u64).init(std.testing.allocator);
+    var lines = tokenize(u8, input_text, "\r\n");
+    while (lines.next()) |line| {
+        const num = parseInt(u64, line, 10) catch unreachable;
         list.append(num) catch unreachable;
     }
     return list;
 }
 
-fn countIncreases(inputList:std.ArrayList(u32), windowSize:u32) u32 {
-    var increaseCount:u32 = 0;
-    var i:usize = 0;
-    var prevSum:u32 = 0;
-    while(i < windowSize) : (i += 1) {
-        prevSum += inputList.items[i];
+fn countIncreases(input: std.ArrayList(u64), window_size: u64) u64 {
+    var count: u64 = 0;
+    var i: usize = 0;
+    var prev_sum: u64 = 0;
+    while (i < window_size) : (i += 1) {
+        prev_sum += input.items[i];
     }
-    i = windowSize;
-    while(i < inputList.items.len) : (i += 1) {
-        const sum = prevSum - inputList.items[i-windowSize] + inputList.items[i];
-        if (sum > prevSum)
-            increaseCount += 1;
-        prevSum = sum;
+    i = window_size;
+    while (i < input.items.len) : (i += 1) {
+        const sum = prev_sum - input.items[i - window_size] + input.items[i];
+        if (sum > prev_sum)
+            count += 1;
+        prev_sum = sum;
     }
-    return increaseCount;
+    return count;
 }
 
-pub fn main() !void {
-    const inputList = parseInput(data);
-    defer inputList.deinit();
+pub fn main() !void {}
 
-    const part1 = countIncreases(inputList, 1);
-    try std.testing.expect(part1 == 1451);
-    print("Part 1: {d}\n", .{part1});
-
-    const part2 = countIncreases(inputList, 3);
-    try std.testing.expect(part2 == 1395);
-    print("Part 2: {d}\n", .{part2});
-}
-
-const testData = 
+const test_data =
     \\199
     \\200
     \\208
@@ -62,20 +51,26 @@ const testData =
     \\269
     \\260
     \\263
-    ;
+;
 
 test "part1" {
-    const testList = parseInput(testData);
-    defer testList.deinit();
-    const increases = countIncreases(testList, 1);
-    try std.testing.expect(increases == 7);
+    const test_input = parseInput(test_data);
+    defer test_input.deinit();
+    try std.testing.expectEqual(@as(u64, 7), countIncreases(test_input, 1));
+
+    const input = parseInput(data);
+    defer input.deinit();
+    try std.testing.expectEqual(@as(u64, 1451), countIncreases(input, 1));
 }
 
 test "part2" {
-    const testList = parseInput(testData);
-    defer testList.deinit();
-    const increases = countIncreases(testList, 3);
-    try std.testing.expect(increases == 5);
+    const test_input = parseInput(test_data);
+    defer test_input.deinit();
+    try std.testing.expectEqual(@as(u64, 5), countIncreases(test_input, 3));
+
+    const input = parseInput(data);
+    defer input.deinit();
+    try std.testing.expectEqual(@as(u64, 1395), countIncreases(input, 3));
 }
 
 // Useful stdlib functions
