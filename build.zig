@@ -7,6 +7,31 @@ const should_link_libc = false;
 
 const test_files = [_][]const u8{
     // list any zig files with tests here
+    "src/day01.zig",
+    "src/day02.zig",
+    "src/day03.zig",
+    "src/day04.zig",
+    "src/day05.zig",
+    "src/day06.zig",
+    "src/day07.zig",
+    "src/day08.zig",
+    "src/day09.zig",
+    "src/day10.zig",
+    "src/day11.zig",
+    "src/day12.zig",
+    "src/day13.zig",
+    "src/day14.zig",
+    "src/day15.zig",
+    "src/day16.zig",
+    "src/day17.zig",
+    "src/day18.zig",
+    "src/day19.zig",
+    "src/day20.zig",
+    "src/day21.zig",
+    "src/day22.zig",
+    "src/day23.zig",
+    "src/day24.zig",
+    "src/day25.zig",
 };
 
 fn linkObject(b: *Builder, obj: *LibExeObjStep) void {
