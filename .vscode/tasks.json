@@ -7,207 +7,288 @@
             "label": "build day 01",
             "type": "shell",
             "command": "zig",
-            "args": ["build", "install_day01"], // add -Drelease-safe=true or -Drelease-fast=true to optimize
+            "args": [
+                "build",
+                "install_day01"
+            ],
             "problemMatcher": [],
-            "group": "build",
+            "group": "build"
         },
         {
             "label": "build day 02",
             "type": "shell",
             "command": "zig",
-            "args": ["build", "install_day02"], // add -Drelease-safe=true or -Drelease-fast=true to optimize
+            "args": [
+                "build",
+                "install_day02"
+            ],
             "problemMatcher": [],
-            "group": "build",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         },
         {
             "label": "build day 03",
             "type": "shell",
             "command": "zig",
-            "args": ["build", "install_day03"], // add -Drelease-safe=true or -Drelease-fast=true to optimize
+            "args": [
+                "build",
+                "install_day03"
+            ],
             "problemMatcher": [],
-            "group": "build",
+            "group": "build"
         },
         {
             "label": "build day 04",
             "type": "shell",
             "command": "zig",
-            "args": ["build", "install_day04"], // add -Drelease-safe=true or -Drelease-fast=true to optimize
+            "args": [
+                "build",
+                "install_day04"
+            ],
             "problemMatcher": [],
-            "group": "build",
+            "group": "build"
         },
         {
             "label": "build day 05",
             "type": "shell",
             "command": "zig",
-            "args": ["build", "install_day05"], // add -Drelease-safe=true or -Drelease-fast=true to optimize
+            "args": [
+                "build",
+                "install_day05"
+            ],
             "problemMatcher": [],
-            "group": "build",
+            "group": "build"
         },
         {
             "label": "build day 06",
             "type": "shell",
             "command": "zig",
-            "args": ["build", "install_day06"], // add -Drelease-safe=true or -Drelease-fast=true to optimize
+            "args": [
+                "build",
+                "install_day06"
+            ],
             "problemMatcher": [],
-            "group": "build",
+            "group": "build"
         },
         {
             "label": "build day 07",
             "type": "shell",
             "command": "zig",
-            "args": ["build", "install_day07"], // add -Drelease-safe=true or -Drelease-fast=true to optimize
+            "args": [
+                "build",
+                "install_day07"
+            ],
             "problemMatcher": [],
-            "group": "build",
+            "group": "build"
         },
         {
             "label": "build day 08",
             "type": "shell",
             "command": "zig",
-            "args": ["build", "install_day08"], // add -Drelease-safe=true or -Drelease-fast=true to optimize
+            "args": [
+                "build",
+                "install_day08"
+            ],
             "problemMatcher": [],
-            "group": "build",
+            "group": "build"
         },
         {
             "label": "build day 09",
             "type": "shell",
             "command": "zig",
-            "args": ["build", "install_day09"], // add -Drelease-safe=true or -Drelease-fast=true to optimize
+            "args": [
+                "build",
+                "install_day09"
+            ],
             "problemMatcher": [],
-            "group": "build",
+            "group": "build"
         },
         {
             "label": "build day 10",
             "type": "shell",
             "command": "zig",
-            "args": ["build", "install_day10"], // add -Drelease-safe=true or -Drelease-fast=true to optimize
+            "args": [
+                "build",
+                "install_day10"
+            ],
             "problemMatcher": [],
-            "group": "build",
+            "group": "build"
         },
         {
             "label": "build day 11",
             "type": "shell",
             "command": "zig",
-            "args": ["build", "install_day11"], // add -Drelease-safe=true or -Drelease-fast=true to optimize
+            "args": [
+                "build",
+                "install_day11"
+            ],
             "problemMatcher": [],
-            "group": "build",
+            "group": "build"
         },
         {
             "label": "build day 12",
             "type": "shell",
             "command": "zig",
-            "args": ["build", "install_day12"], // add -Drelease-safe=true or -Drelease-fast=true to optimize
+            "args": [
+                "build",
+                "install_day12"
+            ],
             "problemMatcher": [],
-            "group": "build",
+            "group": "build"
         },
         {
             "label": "build day 13",
             "type": "shell",
             "command": "zig",
-            "args": ["build", "install_day13"], // add -Drelease-safe=true or -Drelease-fast=true to optimize
+            "args": [
+                "build",
+                "install_day13"
+            ],
             "problemMatcher": [],
-            "group": "build",
+            "group": "build"
         },
         {
             "label": "build day 14",
             "type": "shell",
             "command": "zig",
-            "args": ["build", "install_day14"], // add -Drelease-safe=true or -Drelease-fast=true to optimize
+            "args": [
+                "build",
+                "install_day14"
+            ],
             "problemMatcher": [],
-            "group": "build",
+            "group": "build"
         },
         {
             "label": "build day 15",
             "type": "shell",
             "command": "zig",
-            "args": ["build", "install_day15"], // add -Drelease-safe=true or -Drelease-fast=true to optimize
+            "args": [
+                "build",
+                "install_day15"
+            ],
             "problemMatcher": [],
-            "group": "build",
+            "group": "build"
         },
         {
             "label": "build day 16",
             "type": "shell",
             "command": "zig",
-            "args": ["build", "install_day16"], // add -Drelease-safe=true or -Drelease-fast=true to optimize
+            "args": [
+                "build",
+                "install_day16"
+            ],
             "problemMatcher": [],
-            "group": "build",
+            "group": "build"
         },
         {
             "label": "build day 17",
             "type": "shell",
             "command": "zig",
-            "args": ["build", "install_day17"], // add -Drelease-safe=true or -Drelease-fast=true to optimize
+            "args": [
+                "build",
+                "install_day17"
+            ],
             "problemMatcher": [],
-            "group": "build",
+            "group": "build"
         },
         {
             "label": "build day 18",
             "type": "shell",
             "command": "zig",
-            "args": ["build", "install_day18"], // add -Drelease-safe=true or -Drelease-fast=true to optimize
+            "args": [
+                "build",
+                "install_day18"
+            ],
             "problemMatcher": [],
-            "group": "build",
+            "group": "build"
         },
         {
             "label": "build day 19",
             "type": "shell",
             "command": "zig",
-            "args": ["build", "install_day19"], // add -Drelease-safe=true or -Drelease-fast=true to optimize
+            "args": [
+                "build",
+                "install_day19"
+            ],
             "problemMatcher": [],
-            "group": "build",
+            "group": "build"
         },
         {
             "label": "build day 20",
             "type": "shell",
             "command": "zig",
-            "args": ["build", "install_day20"], // add -Drelease-safe=true or -Drelease-fast=true to optimize
+            "args": [
+                "build",
+                "install_day20"
+            ],
             "problemMatcher": [],
-            "group": "build",
+            "group": "build"
         },
         {
             "label": "build day 21",
             "type": "shell",
             "command": "zig",
-            "args": ["build", "install_day21"], // add -Drelease-safe=true or -Drelease-fast=true to optimize
+            "args": [
+                "build",
+                "install_day21"
+            ],
             "problemMatcher": [],
-            "group": "build",
+            "group": "build"
         },
         {
             "label": "build day 22",
             "type": "shell",
             "command": "zig",
-            "args": ["build", "install_day22"], // add -Drelease-safe=true or -Drelease-fast=true to optimize
+            "args": [
+                "build",
+                "install_day22"
+            ],
             "problemMatcher": [],
-            "group": "build",
+            "group": "build"
         },
         {
             "label": "build day 23",
             "type": "shell",
             "command": "zig",
-            "args": ["build", "install_day23"], // add -Drelease-safe=true or -Drelease-fast=true to optimize
+            "args": [
+                "build",
+                "install_day23"
+            ],
             "problemMatcher": [],
-            "group": "build",
+            "group": "build"
         },
         {
             "label": "build day 24",
             "type": "shell",
             "command": "zig",
-            "args": ["build", "install_day24"], // add -Drelease-safe=true or -Drelease-fast=true to optimize
+            "args": [
+                "build",
+                "install_day24"
+            ],
             "problemMatcher": [],
-            "group": "build",
+            "group": "build"
         },
         {
             "label": "build day 25",
             "type": "shell",
             "command": "zig",
-            "args": ["build", "install_day25"], // add -Drelease-safe=true or -Drelease-fast=true to optimize
+            "args": [
+                "build",
+                "install_day25"
+            ],
             "problemMatcher": [],
-            "group": "build",
+            "group": "build"
         },
         {
             "label": "test",
             "type": "shell",
             "command": "zig",
-            "args": ["build", "test"],
+            "args": [
+                "build",
+                "test"
+            ],
             "problemMatcher": [],
             "group": {
                 "kind": "test",
@@ -218,8 +299,11 @@
             "label": "format",
             "type": "shell",
             "command": "zig",
-            "args": ["fmt", "${file}"],
-            "problemMatcher": [],
-        },
+            "args": [
+                "fmt",
+                "${file}"
+            ],
+            "problemMatcher": []
+        }
     ]
 }
