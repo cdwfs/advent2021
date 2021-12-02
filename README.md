@@ -1,17 +1,23 @@
-# Advent Of Code Zig Template
+My [Advent of Code 2021](https://adventofcode.com/2021) solutions, implemented in
+[Zig](https://www.ziglang.org/) and built using [VS Code](https://code.visualstudio.com/).
 
-This repo provides a template for Advent of Code participants using Zig.  It contains a main file for each day, a build.zig file set up with targets for each day, and Visual Studio Code files for debugging.
+_Based on the [Zig AoC template](https://github.com/SpexGuy/Zig-AoC-Template) provided by @SpexGuy_
 
-### How to use this template:
+## TIL
 
-The src/ directory contains a main file for each day.  Put your code there.  The build command `zig build dayXX [target and mode options] -- [program args]` will build and run the specified day.  You can also use `zig build install_dayXX [target and mode options]` to build the executable for a day and put it into `zig-cache/bin` without executing it.  By default this template does not link libc, but you can set `should_link_libc` to `true` in build.zig to change that.  If you have files with tests, add those files to the list of test files in build.zig.  The command `zig build test` will run tests in all of these files.
+A list of the puzzles, and what new language/tool features I learned each day:
 
-Each day contains a decl like this:
-```zig
-const data = @embedFile("../data/day05.txt");
-```
-To use this system, save your input for a day in the data/ directory with the appropriate name.  Reference this decl to load the contents of that file as a compile time constant.  If a day has no input, or you prefer not to embed it in this form, simply don't reference this decl.  If it's unused, it will not try to load the file, and it won't error if the file does not exist.
-
-This repo also contains Visual Studio Code project files for debugging.  These are meant to work with the C/C++ plugin.  There is a debug configuration for each day.  By default all days are built in debug mode, but this can be changed by editing `.vscode/tasks.json` if you have a need for speed.
-
-If you would like to contribute project files for other development environments, please send a PR.
+### [Day 1: Sonar Sweep](https://adventofcode.com/2021/day/1)
+- Basic Zig + VSCode integration
+  - Currently need to run tests manually with `zig test dayNN`; need to add a VSCode task for that
+- [Multiline string literals](https://ziglang.org/documentation/master/#Multiline-String-Literals)
+  - `Selection -> Switch to Ctrl+Click for Multi-Cursor` enables `Alt`+click for column select, and `Ctrl`+click for multi-cursor
+- Tests use `try expect(expr)` to fail the test if `expr` is false. `assert(expr)` doesn't seem to have the same effect.
+- The std::vector of Zig is [std.ArrayList](https://ziglang.org/documentation/master/std/#std;ArrayList).
+  - Use `defer list.deinit()` to deallocate the list when it goes out of scope. (Docs don't mention `deinit()` method? Is it some sort of allocator magic?
+- `std.mem.tokenize(data, "\r\n")` to get a `TokenIterator` to iterate over lines in text data. `while(iter.next()) |str| {}` to process things from the iterator until it's empty.
+- `std.fmt.parseInt()` to convert a string to an integer.
+  - append `catch unreachable` to an error union to say "this can never fail, just give me the value".
+- No one-line for loop over a range of integers? You have to declare and initialize an `i`, and then do `while(i < max) : (i += 1) {}`?
+- TODO: Go read more about Optionals and Errors again.
+- Declaring a variable as `const foo = 0xFFFF;` seemed to force it into comptime-only mode; giving it an explicit type was needed to avoid build errors.
