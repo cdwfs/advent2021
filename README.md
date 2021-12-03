@@ -31,6 +31,6 @@ A list of the puzzles, and what new language/tool features I learned each day:
 
 ### [Day 3: Binary Diagnostic](https://adventofcode.com/2021/day/3)
 - How to *debug* tests from VSCode? F5 doesn't work any more. If I switch the tasks.json back to `"build", "day03"` then it can't find my breakpoints, because main() is empty and everything gets stripped out.
-- This whole comptime nonsense is getting annoying real fast. Does every number literal have to be `@as(i64, N)`?
+- This whole comptime nonsense is getting annoying real fast. I have to resort to `@as(i64, N)` instead of `N` far more often than I'd like.
 - `ArrayList.ensureTotalCapacity()` is akin to `.reserve()`, not `.resize()`. You still need to `.append()` items one at a time.
 - Not being able to initialize a local loop counter for cases where I'm not iterating over a collection is mildly annoying.
