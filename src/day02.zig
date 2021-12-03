@@ -21,9 +21,9 @@ const Move = struct {
     distance: i64,
 };
 
-fn parseInput(inputText: []const u8) std.ArrayList(Move) {
+fn parseInput(input_text: []const u8) std.ArrayList(Move) {
     var list = std.ArrayList(Move).init(std.testing.allocator);
-    var lines = tokenize(u8, inputText, "\r\n");
+    var lines = tokenize(u8, input_text, "\r\n");
     while (lines.next()) |line| {
         var tokens = tokenize(u8, line, " ");
         const dir_str = tokens.next().?;
