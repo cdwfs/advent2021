@@ -28,3 +28,9 @@ A list of the puzzles, and what new language/tool features I learned each day:
 - `if` expressions (which I ultimately replaces with `switch` expressions anyway)
 - Weird comptime error when using try `expectEquals(150, myfunc(x))` is due to `expectEquals()` using the type of the first parameter to determine the second. The workaround is to use `@as(u32, 150)` to cast the expected result away from `comptime_int`, but it's a [known wart](https://github.com/ziglang/zig/issues/4437) with a few proposed fixes in the works.
 - 
+
+### [Day 3: Binary Diagnostic](https://adventofcode.com/2021/day/3)
+- How to *debug* tests from VSCode? F5 doesn't work any more. If I switch the tasks.json back to `"build", "day03"` then it can't find my breakpoints, because main() is empty and everything gets stripped out.
+- This whole comptime nonsense is getting annoying real fast. Does every number literal have to be `@as(i64, N)`?
+- `ArrayList.ensureTotalCapacity()` is akin to `.reserve()`, not `.resize()`. You still need to `.append()` items one at a time.
+- Not being able to initialize a local loop counter for cases where I'm not iterating over a collection is mildly annoying.
