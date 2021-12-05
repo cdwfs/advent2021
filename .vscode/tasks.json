@@ -33,5 +33,29 @@
             },
             "group": "build"
         },
+        {
+            "label": "test",
+            "type": "shell",
+            "command": "zig",
+            "args": [
+                "build",
+                "test"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "format",
+            "type": "shell",
+            "command": "zig",
+            "args": [
+                "fmt",
+                "${file}"
+            ],
+            "problemMatcher": []
+        }
     ]
 }
