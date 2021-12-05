@@ -12,9 +12,9 @@ const gpa = util.gpa;
 const data = @embedFile("../data/day02.txt");
 
 const MoveDir = enum {
-    Forward,
-    Down,
-    Up,
+    forward,
+    down,
+    up,
 };
 const Move = struct {
     dir: MoveDir,
@@ -27,10 +27,10 @@ fn parseInput(input_text: []const u8) std.ArrayList(Move) {
     while (lines.next()) |line| {
         var tokens = tokenize(u8, line, " ");
         const dir_str = tokens.next().?;
-        const dir = switch (dir_str[0]) {
-            'f' => MoveDir.Forward,
-            'd' => MoveDir.Down,
-            'u' => MoveDir.Up,
+        const dir: MoveDir = switch (dir_str[0]) {
+            'f' => .forward,
+            'd' => .down,
+            'u' => .up,
             else => unreachable,
         };
         const dist = parseInt(i64, tokens.next().?, 10) catch unreachable;
@@ -44,13 +44,13 @@ fn finalProductXY(input: std.ArrayList(Move)) i64 {
     var depth: i64 = 0;
     for (input.items) |move| {
         switch (move.dir) {
-            MoveDir.Forward => {
+            .forward => {
                 horizontal += move.distance;
             },
-            MoveDir.Down => {
+            .down => {
                 depth += move.distance;
             },
-            MoveDir.Up => {
+            .up => {
                 depth -= move.distance;
             },
         }
@@ -64,14 +64,14 @@ fn finalProductXYWithAim(input: std.ArrayList(Move)) i64 {
     var aim: i64 = 0;
     for (input.items) |move| {
         switch (move.dir) {
-            MoveDir.Forward => {
+            MoveDir.forward => {
                 horizontal += move.distance;
                 depth += aim * move.distance;
             },
-            MoveDir.Down => {
+            MoveDir.down => {
                 aim += move.distance;
             },
-            MoveDir.Up => {
+            MoveDir.up => {
                 aim -= move.distance;
             },
         }
