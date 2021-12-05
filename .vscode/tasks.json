@@ -4,306 +4,34 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build day 01",
+            "label": "build and test current",
             "type": "shell",
             "command": "zig",
             "args": [
                 "test",
-                "src/day01.zig"
-            ],
-            "problemMatcher": [],
-            "group": "build"
-        },
-        {
-            "label": "build day 02",
-            "type": "shell",
-            "command": "zig",
-            "args": [
-                "test",
-                "src/day02.zig"
-            ],
-            "problemMatcher": [],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        },
-        {
-            "label": "build day 03",
-            "type": "shell",
-            "command": "zig",
-            "args": [
-                "test",
-                "src/day03.zig"
-            ],
-            "problemMatcher": [],
-            "group": "build"
-        },
-        {
-            "label": "build day 04",
-            "type": "shell",
-            "command": "zig",
-            "args": [
-                "test",
-                "src/day04.zig"
-            ],
-            "problemMatcher": [],
-            "group": "build"
-        },
-        {
-            "label": "build day 05",
-            "type": "shell",
-            "command": "zig",
-            "args": [
-                "test",
-                "src/day05.zig"
-            ],
-            "problemMatcher": [],
-            "group": "build"
-        },
-        {
-            "label": "build day 06",
-            "type": "shell",
-            "command": "zig",
-            "args": [
-                "test",
-                "src/day06.zig"
-            ],
-            "problemMatcher": [],
-            "group": "build"
-        },
-        {
-            "label": "build day 07",
-            "type": "shell",
-            "command": "zig",
-            "args": [
-                "test",
-                "src/day07.zig"
-            ],
-            "problemMatcher": [],
-            "group": "build"
-        },
-        {
-            "label": "build day 08",
-            "type": "shell",
-            "command": "zig",
-            "args": [
-                "test",
-                "src/day08.zig"
-            ],
-            "problemMatcher": [],
-            "group": "build"
-        },
-        {
-            "label": "build day 09",
-            "type": "shell",
-            "command": "zig",
-            "args": [
-                "test",
-                "src/day09.zig"
-            ],
-            "problemMatcher": [],
-            "group": "build"
-        },
-        {
-            "label": "build day 10",
-            "type": "shell",
-            "command": "zig",
-            "args": [
-                "test",
-                "src/day10.zig"
-            ],
-            "problemMatcher": [],
-            "group": "build"
-        },
-        {
-            "label": "build day 11",
-            "type": "shell",
-            "command": "zig",
-            "args": [
-                "test",
-                "src/day11.zig"
-            ],
-            "problemMatcher": [],
-            "group": "build"
-        },
-        {
-            "label": "build day 12",
-            "type": "shell",
-            "command": "zig",
-            "args": [
-                "test",
-                "src/day12.zig"
-            ],
-            "problemMatcher": [],
-            "group": "build"
-        },
-        {
-            "label": "build day 13",
-            "type": "shell",
-            "command": "zig",
-            "args": [
-                "test",
-                "src/day13.zig"
-            ],
-            "problemMatcher": [],
-            "group": "build"
-        },
-        {
-            "label": "build day 14",
-            "type": "shell",
-            "command": "zig",
-            "args": [
-                "test",
-                "src/day14.zig"
-            ],
-            "problemMatcher": [],
-            "group": "build"
-        },
-        {
-            "label": "build day 15",
-            "type": "shell",
-            "command": "zig",
-            "args": [
-                "test",
-                "src/day15.zig"
-            ],
-            "problemMatcher": [],
-            "group": "build"
-        },
-        {
-            "label": "build day 16",
-            "type": "shell",
-            "command": "zig",
-            "args": [
-                "test",
-                "src/day16.zig"
-            ],
-            "problemMatcher": [],
-            "group": "build"
-        },
-        {
-            "label": "build day 17",
-            "type": "shell",
-            "command": "zig",
-            "args": [
-                "test",
-                "src/day17.zig"
-            ],
-            "problemMatcher": [],
-            "group": "build"
-        },
-        {
-            "label": "build day 18",
-            "type": "shell",
-            "command": "zig",
-            "args": [
-                "test",
-                "src/day18.zig"
-            ],
-            "problemMatcher": [],
-            "group": "build"
-        },
-        {
-            "label": "build day 19",
-            "type": "shell",
-            "command": "zig",
-            "args": [
-                "test",
-                "src/day19.zig"
-            ],
-            "problemMatcher": [],
-            "group": "build"
-        },
-        {
-            "label": "build day 20",
-            "type": "shell",
-            "command": "zig",
-            "args": [
-                "test",
-                "src/day20.zig"
-            ],
-            "problemMatcher": [],
-            "group": "build"
-        },
-        {
-            "label": "build day 21",
-            "type": "shell",
-            "command": "zig",
-            "args": [
-                "test",
-                "src/day21.zig"
-            ],
-            "problemMatcher": [],
-            "group": "build"
-        },
-        {
-            "label": "build day 22",
-            "type": "shell",
-            "command": "zig",
-            "args": [
-                "test",
-                "src/day22.zig"
-            ],
-            "problemMatcher": [],
-            "group": "build"
-        },
-        {
-            "label": "build day 23",
-            "type": "shell",
-            "command": "zig",
-            "args": [
-                "test",
-                "src/day23.zig"
-            ],
-            "problemMatcher": [],
-            "group": "build"
-        },
-        {
-            "label": "build day 24",
-            "type": "shell",
-            "command": "zig",
-            "args": [
-                "test",
-                "src/day24.zig"
-            ],
-            "problemMatcher": [],
-            "group": "build"
-        },
-        {
-            "label": "build day 25",
-            "type": "shell",
-            "command": "zig",
-            "args": [
-                "test",
-                "src/day25.zig"
-            ],
-            "problemMatcher": [],
-            "group": "build"
-        },
-        {
-            "label": "test",
-            "type": "shell",
-            "command": "zig",
-            "args": [
-                "build",
-                "test"
-            ],
-            "problemMatcher": [],
-            "group": {
-                "kind": "test",
-                "isDefault": true
-            }
-        },
-        {
-            "label": "format",
-            "type": "shell",
-            "command": "zig",
-            "args": [
-                "fmt",
                 "${file}"
             ],
-            "problemMatcher": []
-        }
+            "presentation": {
+                "clear": true,
+                "showReuseMessage": false,
+                "revealProblems": "onProblem"
+            },
+            "problemMatcher": {
+                "owner": "zig",
+                "fileLocation": [
+                    "relative",
+                    "${workspaceFolder}"
+                ],
+                "pattern": {
+                    "regexp": "([^\\s]*):(\\d+):(\\d+):\\s+(?:fatal\\s+)?(error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                },
+            },
+            "group": "build"
+        },
     ]
 }
