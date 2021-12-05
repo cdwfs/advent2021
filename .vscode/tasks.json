@@ -18,10 +18,7 @@
             },
             "problemMatcher": {
                 "owner": "zig",
-                "fileLocation": [
-                    "relative",
-                    "${workspaceFolder}"
-                ],
+                "fileLocation":"autoDetect",
                 "pattern": {
                     "regexp": "([^\\s]*):(\\d+):(\\d+):\\s+(?:fatal\\s+)?(error):\\s+(.*)$",
                     "file": 1,
