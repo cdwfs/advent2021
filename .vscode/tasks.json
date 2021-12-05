@@ -4,7 +4,34 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build and test current",
+            "label": "Build Current File",
+            "type": "shell",
+            "command": "zig",
+            "args": [
+                "build",
+                "install_${fileBasenameNoExtension}"
+            ],
+            "presentation": {
+                "clear": true,
+                "showReuseMessage": false,
+                "revealProblems": "onProblem"
+            },
+            "problemMatcher": {
+                "owner": "zig",
+                "fileLocation":"autoDetect",
+                "pattern": {
+                    "regexp": "([^\\s]*):(\\d+):(\\d+):\\s+(?:fatal\\s+)?(error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                },
+            },
+            "group": "build"
+        },
+        {
+            "label": "Test Current File",
             "type": "shell",
             "command": "zig",
             "args": [
