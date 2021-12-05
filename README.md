@@ -34,3 +34,15 @@ A list of the puzzles, and what new language/tool features I learned each day:
 - This whole comptime nonsense is getting annoying real fast. I have to resort to `@as(i64, N)` instead of `N` far more often than I'd like.
 - `ArrayList.ensureTotalCapacity()` is akin to `.reserve()`, not `.resize()`. You still need to `.append()` items one at a time.
 - Not being able to initialize a local loop counter for cases where I'm not iterating over a collection is mildly annoying.
+
+### [Day 4: Giant Squid](https://adventofcode.com/2021/day/4)
+- VSCode stuff:
+  - Don't need twenty-something different build/test targets. In this case of one file = one exe, can just use ${fileBasenameNoExtension} to invoke whatever build/test command is needed.
+  - Hooked up a basic [problem matcher](https://code.visualstudio.com/Docs/editor/tasks#_defining-a-problem-matcher), so I get proper compile errors now. ([example](https://github.com/cdwfs/advent2021/blob/ccd38ef3b0bb8b96bcabededf12d05d67fa1a01d/.vscode/tasks.json))
+  - Clear the terminal between runs.
+- Put test code in standalone functions, called from both unit tests and main. The former is good for running & checking output, the latter lets you step through and debug.
+- `AutoHashMap` is Zig's workhorse dictionary struct. It was probably overkill for this problem, but I'll need it eventually.
+- Creating custom data types with non-trivial `init()` and `deinit()` functions. Still eludes me for a bit; I spent a long time fiddling with whether pointers should be pointers or not, and am not 100% clear what I did to make it work in the end.
+- bitwise ops require the shift amount to have log2 the bits of the value being shifted. See [@truncate()](https://ziglang.org/documentation/master/#truncate) to lop off bits (though I used `@intCast()`).
+- `@compileLog()` lets you debug-print in compile-time code; may be useful at some point.
+  
