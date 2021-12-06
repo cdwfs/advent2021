@@ -18,7 +18,7 @@
             },
             "problemMatcher": {
                 "owner": "zig",
-                "fileLocation":"autoDetect",
+                "fileLocation": "autoDetect",
                 "pattern": {
                     "regexp": "([^\\s]*):(\\d+):(\\d+):\\s+(?:fatal\\s+)?(error):\\s+(.*)$",
                     "file": 1,
@@ -26,7 +26,7 @@
                     "column": 3,
                     "severity": 4,
                     "message": 5
-                },
+                }
             },
             "group": "build"
         },
@@ -45,7 +45,7 @@
             },
             "problemMatcher": {
                 "owner": "zig",
-                "fileLocation":"autoDetect",
+                "fileLocation": "autoDetect",
                 "pattern": {
                     "regexp": "([^\\s]*):(\\d+):(\\d+):\\s+(?:fatal\\s+)?(error):\\s+(.*)$",
                     "file": 1,
@@ -53,9 +53,12 @@
                     "column": 3,
                     "severity": 4,
                     "message": 5
-                },
+                }
             },
-            "group": "build"
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         },
         {
             "label": "test",
