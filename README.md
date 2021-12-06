@@ -13,7 +13,7 @@ A list of the puzzles, and what new language/tool features I learned each day:
   - `Selection -> Switch to Ctrl+Click for Multi-Cursor` enables `Alt`+click for column select, and `Ctrl`+click for multi-cursor
 - Tests use `try expect(expr)` to fail the test if `expr` is false. `assert(expr)` doesn't seem to have the same effect.
 - The std::vector of Zig is [std.ArrayList](https://ziglang.org/documentation/master/std/#std;ArrayList).
-  - Use `defer list.deinit()` to deallocate the list when it goes out of scope. (Docs don't mention `deinit()` method? Is it some sort of allocator magic?
+  - Use `defer list.deinit()` to deallocate the list when it goes out of scope.
 - `std.mem.tokenize(data, "\r\n")` to get a `TokenIterator` to iterate over lines in text data. `while(iter.next()) |str| {}` to process things from the iterator until it's empty.
 - `std.fmt.parseInt()` to convert a string to an integer.
   - append `catch unreachable` to an error union to say "this can never fail, just give me the value".
@@ -50,3 +50,10 @@ A list of the puzzles, and what new language/tool features I learned each day:
 - [ZLS](https://github.com/zigtools/zls) is totally work configuring properly. F12 works! Style warnings! API docs on mouse hover!
 - There's some big breaking API changes going on in Zig 0.9.0-dev that I happened to catch at the wrong time, so the stdlib functions I was using and the API docs I was reading didn't always match up. Woops!
 - Otherwise, no new concepts. This one felt pretty refreshingly straightforward.
+
+### [Day 6: Lanternfish](https://adventofcode.com/2021/day/6)
+- `std.mem.rotate()` to rotate array contents in-place
+- `array[0..]` gives the array as a slice
+- fish are fungible.
+- You sure do get integer overflow errors if you use too small a variable at runtime! (unless you use one of the fancy wrapping/saturating operators).
+- You can't `.initCapacity()` or `.ensureTotalCapacity()` in a struct field's default initializer because default values for these fields are computed at compile time and stored as constants, and thus can't allocate memory. This preserves Zig's "if it doesn't look like a function call, it's not a function call" guarantee: `MyType{}` isn't a function call.
