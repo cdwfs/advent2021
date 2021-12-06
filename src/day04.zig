@@ -187,7 +187,7 @@ fn part2(input: Input) i64 {
     unreachable;
 }
 
-fn test_part1() !void {
+fn testPart1() !void {
     var test_input = parseInput(test_data);
     defer test_input.deinit();
     try std.testing.expectEqual(@as(i64, 4512), part1(test_input));
@@ -197,7 +197,7 @@ fn test_part1() !void {
     try std.testing.expectEqual(@as(i64, 64084), part1(input));
 }
 
-fn test_part2() !void {
+fn testPart2() !void {
     var test_input = parseInput(test_data);
     defer test_input.deinit();
     try std.testing.expectEqual(@as(i64, 1924), part2(test_input));
@@ -208,8 +208,8 @@ fn test_part2() !void {
 }
 
 pub fn main() !void {
-    try test_part1();
-    try test_part2();
+    try testPart1();
+    try testPart2();
 }
 
 const test_data =
@@ -235,11 +235,11 @@ const test_data =
 ;
 
 test "part1" {
-    try test_part1();
+    try testPart1();
 }
 
 test "part2" {
-    try test_part2();
+    try testPart2();
 }
 
 // Useful stdlib functions
