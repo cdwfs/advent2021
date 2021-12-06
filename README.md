@@ -45,4 +45,8 @@ A list of the puzzles, and what new language/tool features I learned each day:
 - Creating custom data types with non-trivial `init()` and `deinit()` functions. Still eludes me for a bit; I spent a long time fiddling with whether pointers should be pointers or not, and am not 100% clear what I did to make it work in the end.
 - bitwise ops require the shift amount to have log2 the bits of the value being shifted. See [@truncate()](https://ziglang.org/documentation/master/#truncate) to lop off bits (though I used `@intCast()`).
 - `@compileLog()` lets you debug-print in compile-time code; may be useful at some point.
-  
+
+### [Day 5: Hydrothermal Venture](https://adventofcode.com/2021/day/5)
+- [ZLS](https://github.com/zigtools/zls) is totally work configuring properly. F12 works! Style warnings! API docs on mouse hover!
+- There's some big breaking API changes going on in Zig 0.9.0-dev that I happened to catch at the wrong time, so the stdlib functions I was using and the API docs I was reading didn't always match up. Woops!
+- Otherwise, no new concepts. This one felt pretty refreshingly straightforward.
