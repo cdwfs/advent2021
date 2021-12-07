@@ -57,3 +57,5 @@ A list of the puzzles, and what new language/tool features I learned each day:
 - fish are fungible.
 - You sure do get integer overflow errors if you use too small a variable at runtime! (unless you use one of the fancy wrapping/saturating operators).
 - You can't `.initCapacity()` or `.ensureTotalCapacity()` in a struct field's default initializer because default values for these fields are computed at compile time and stored as constants, and thus can't allocate memory. This preserves Zig's "if it doesn't look like a function call, it's not a function call" guarantee: `MyType{}` isn't a function call.
+
+### [Day 7: The Treachery of Whales](https://adventofcode.com/2021/day/7)
