@@ -17,7 +17,7 @@ const BoardLoc = struct {
 const NumLocsMap = struct {
     map: std.AutoHashMap(u8, std.ArrayList(BoardLoc)) = undefined,
 
-    pub fn init(allocator: *std.mem.Allocator) @This() {
+    pub fn init(allocator: std.mem.Allocator) @This() {
         var map = std.AutoHashMap(u8, std.ArrayList(BoardLoc)).init(allocator);
         return @This(){
             .map = map,

@@ -10,7 +10,7 @@ const Point2 = struct {
 const VentMap = struct {
     map: std.AutoHashMap(Point2, u32) = undefined,
 
-    pub fn init(allocator: *std.mem.Allocator) @This() {
+    pub fn init(allocator: std.mem.Allocator) @This() {
         var map = std.AutoHashMap(Point2, u32).init(allocator);
         return @This(){
             .map = map,
