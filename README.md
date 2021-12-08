@@ -66,3 +66,6 @@ A list of the puzzles, and what new language/tool features I learned each day:
 - `std.math.maxInt(type)` for maximum value for a type
 - `@divFloor()` and `divTrunc()` is required for integer division.
 - Just brute-forced part 2, it was fine.
+
+### [Day 8: Seven Segment Search](https://adventofcode.com/2021/day/8)
+- `std.bit_set.IntegerMask` has some useful bitwise intrinsics (`.count()` for popcnt, `.findFirstSet()` for clz, etc.). Doing just basic bitwise ops with them is a bit clunky though; see if you'll use enough of these methods before deciding which type to use.
