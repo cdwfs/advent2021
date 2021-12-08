@@ -101,7 +101,7 @@ fn parseInput(input_text: []const u8) Input {
     var input = Input{
         .numbers = std.mem.trimRight(u8, lines.next().?, "\r"),
     };
-    // TODO: why can't this go in NumLocsMap.init()?
+    // Can't go in .init() because default-initialized values must be compile-time constants & can't allocate.
     input.board_locs.map.ensureTotalCapacity(100) catch unreachable;
 
     // Each board is six lines: a blank line, then five rows of five cells each
