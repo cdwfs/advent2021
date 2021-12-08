@@ -63,3 +63,6 @@ A list of the puzzles, and what new language/tool features I learned each day:
 - You can't `.initCapacity()` or `.ensureTotalCapacity()` in a struct field's default initializer because default values for these fields are computed at compile time and stored as constants, and thus can't allocate memory. This preserves Zig's "if it doesn't look like a function call, it's not a function call" guarantee: `MyType{}` isn't a function call.
 
 ### [Day 7: The Treachery of Whales](https://adventofcode.com/2021/day/7)
+- `std.math.maxInt(type)` for maximum value for a type
+- `@divFloor()` and `divTrunc()` is required for integer division.
+- Just brute-forced part 2, it was fine.
