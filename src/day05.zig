@@ -152,7 +152,7 @@ fn testPart2() !void {
 
     var input = parseInput(data);
     defer input.deinit();
-    try std.testing.expectEqual(@as(i64, 12833), part2(input));
+    try std.testing.expectEqual(@as(i64, 22116), part2(input));
 }
 
 pub fn main() !void {
