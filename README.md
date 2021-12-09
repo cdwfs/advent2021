@@ -69,3 +69,9 @@ A list of the puzzles, and what new language/tool features I learned each day:
 
 ### [Day 8: Seven Segment Search](https://adventofcode.com/2021/day/8)
 - `std.bit_set.IntegerMask` has some useful bitwise intrinsics (`.count()` for popcnt, `.findFirstSet()` for clz, etc.). Doing just basic bitwise ops with them is a bit clunky though; see if you'll use enough of these methods before deciding which type to use.
+
+### [Day 9: Smoke Basin](https://adventofcode.com/2021/day/9)
+- Didn't see a good way to create a dynamic 2D array, so I just used a fixed-size array with the hard-coded puzzle size. I guess the answer is the same as C: either dynamically allocate every row, or use a flat buffer and manually translate \[x,y\] coordinates to flat indices.
+- Idiomatic sorting: `std.sort.sort(i64, array.items, {}. comptime std.sort.asc(i64))`. Why is the `comptime` keyword needed here?
+- Trying to add a `set_cell()` method to my `Input` struct didn't work; it thought the input was a const pointer. Why is that?
+- non-pointer Zig function parameters are implicitly `const`. So inside `fn myFunc(x:i64)`, it is a compile error to modify `x`.
