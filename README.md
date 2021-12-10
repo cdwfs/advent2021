@@ -75,3 +75,7 @@ A list of the puzzles, and what new language/tool features I learned each day:
 - Idiomatic sorting: `std.sort.sort(i64, array.items, {}. comptime std.sort.asc(i64))`. Why is the `comptime` keyword needed here?
 - Trying to add a `set_cell()` method to my `Input` struct didn't work; it thought the input was a const pointer. Why is that?
 - non-pointer Zig function parameters are implicitly `const`. So inside `fn myFunc(x:i64)`, it is a compile error to modify `x`.
+
+### [Day 10: Syntax Scoring](https://adventofcode.com/2021/day/10)
+- Solved in ~30 minutes without needing to reference the docs at all. Hitting my stride!
+- Not clear what the best way to clear an array is -- I went with `.shrinkRetainingCapacity()` but need to take a closer look at the various options.
