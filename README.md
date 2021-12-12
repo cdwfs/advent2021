@@ -79,3 +79,9 @@ A list of the puzzles, and what new language/tool features I learned each day:
 ### [Day 10: Syntax Scoring](https://adventofcode.com/2021/day/10)
 - Solved in ~30 minutes without needing to reference the docs at all. Hitting my stride!
 - Not clear what the best way to clear an array is -- I went with `.shrinkRetainingCapacity()` but need to take a closer look at the various options.
+
+### [Day 11: Dumbo Octopus](https://adventofcode.com/2021/day/11)
+- Whenever you know the length of the array you're iterating, use for(array) |element,i| instead of manually declaring a loop variable (and subsequently forgetting to reinitialize it when you copy/paste the same loop further down the function).
+- `std.mem.copy()` to copy arrays/slices
+- `std.StaticBitSet(size)` gives you the optimal representation for a bitset given `size` (a single int if it'll fit, an array if not) with the same interface on both types.
+- If `ps` is a pointer-to-struct with field `x`, then there's no need to dereference the struct to access the field (but you can). `ps.*.x` and `ps.x` are equivalent.
