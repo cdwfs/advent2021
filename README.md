@@ -89,3 +89,7 @@ A list of the puzzles, and what new language/tool features I learned each day:
 ### [Day 12: Passage Pathing](https://adventofcode.com/2021/day/12)
 - `std.mem.eql(u8, s1, s2)` to compare strings for equality.
 - `std.AutoHashMap()` doesn't work with string keys; use `std.StringHashMap()` instead. Nice error message pointing you in the right direction, A+!
+
+### [Day 13: Transparent Origami](https://adventofcode.com/2021/day/13)
+- `std.ArrayList().appendNTimesAssumeCapacity()` (and the `AssumeCapacity()` methods in general) are useful in cases where the array is pre-allocated.
+- `std.mem.doNotOptimizeAway()` does what it says on the tin
