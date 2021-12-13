@@ -85,3 +85,7 @@ A list of the puzzles, and what new language/tool features I learned each day:
 - `std.mem.copy()` to copy arrays/slices
 - `std.StaticBitSet(size)` gives you the optimal representation for a bitset given `size` (a single int if it'll fit, an array if not) with the same interface on both types.
 - If `ps` is a pointer-to-struct with field `x`, then there's no need to dereference the struct to access the field (but you can). `ps.*.x` and `ps.x` are equivalent.
+
+### [Day 12: Passage Pathing](https://adventofcode.com/2021/day/12)
+- `std.mem.eql(u8, s1, s2)` to compare strings for equality.
+- `std.AutoHashMap()` doesn't work with string keys; use `std.StringHashMap()` instead. Nice error message pointing you in the right direction, A+!
