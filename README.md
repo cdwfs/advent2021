@@ -93,3 +93,8 @@ A list of the puzzles, and what new language/tool features I learned each day:
 ### [Day 13: Transparent Origami](https://adventofcode.com/2021/day/13)
 - `std.ArrayList().appendNTimesAssumeCapacity()` (and the `AssumeCapacity()` methods in general) are useful in cases where the array is pre-allocated.
 - `std.mem.doNotOptimizeAway()` does what it says on the tin
+
+### [Day 14: Extended Polymerization](https://adventofcode.com/2021/day/14)
+- `std.BoundedArray` is a heap-less `std.ArrayList` if the max capacity is known at compile time.
+- Key memory for `std.StringHashMap` is managed by the caller; using stack-allocated strings won't work correctly.
+- `callconv(.Inline)` to force a function to be inlined at all call sites (with a compile error if that's not possible)
