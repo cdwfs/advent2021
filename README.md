@@ -98,3 +98,4 @@ A list of the puzzles, and what new language/tool features I learned each day:
 ### [Day 14: Extended Polymerization](https://adventofcode.com/2021/day/14)
 - Key memory for `std.StringHashMap` is managed by the caller; using stack-allocated strings won't work correctly.
 - `callconv(.Inline)` to force a function to be inlined at all call sites (with a compile error if that's not possible)
+- Use `std.time.Timer` for (up to) nanosecond-resolution timing.

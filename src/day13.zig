@@ -189,10 +189,12 @@ fn testPart1() !void {
         try std.testing.expectEqual(solution, part1(test_input));
     }
 
+    var timer = try std.time.Timer.start();
     var input = try Input.init(data, std.testing.allocator);
     defer input.deinit();
     if (part1_solution) |solution| {
         try std.testing.expectEqual(solution, part1(input));
+        print("part1 took {:15}ns\n", .{timer.lap()});
     }
 }
 
@@ -203,10 +205,12 @@ fn testPart2() !void {
         try std.testing.expectEqual(solution, part2(test_input));
     }
 
+    var timer = try std.time.Timer.start();
     var input = try Input.init(data, std.testing.allocator);
     defer input.deinit();
     if (part2_solution) |solution| {
         try std.testing.expectEqual(solution, part2(input));
+        print("part2 took {:15}ns\n", .{timer.lap()});
     }
 }
 
