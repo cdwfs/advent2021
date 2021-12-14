@@ -36,9 +36,8 @@ const Offset = struct {
     x: isize,
     y: isize,
 };
-pub fn flash(energy: *[10][10]u8, coord: Coord2, flashers: *std.ArrayList(Coord2), flashed: *std.StaticBitSet(100)) void {
+pub fn flash(energy: *[10][10]u8, coord: Coord2, flashers: *std.BoundedArray(Coord2,100), flashed: *std.StaticBitSet(100)) void {
     assert(coord.x < 10 and coord.y < 10);
-    // TODO: Why don't I need any .* operators below?
     const offsets = [8]Offset{
         Offset{ .x = -1, .y = -1 },
         Offset{ .x = 0, .y = -1 },
@@ -69,12 +68,11 @@ pub fn flash(energy: *[10][10]u8, coord: Coord2, flashers: *std.ArrayList(Coord2
 
 fn part1(input: Input) i64 {
     var energy = input.energy;
-    var flashers = std.ArrayList(Coord2).initCapacity(std.testing.allocator, 10 * 10) catch unreachable;
-    defer flashers.deinit();
+    var flashers = std.BoundedArray(Coord2, 100).init(0) catch unreachable;
     var step: usize = 0;
     var flash_count: i64 = 0;
     while (step < 100) : (step += 1) {
-        assert(flashers.items.len == 0);
+        assert(flashers.len == 0);
         var flashed = std.StaticBitSet(100).initEmpty();
         // increase energy of all cells & track any that flash
         for (energy) |*row, y| {
@@ -88,7 +86,7 @@ fn part1(input: Input) i64 {
             }
         }
         // process flashes
-        while (flashers.items.len > 0) {
+        while (flashers.len > 0) {
             const center = flashers.pop();
             flash(&energy, center, &flashers, &flashed);
         }
@@ -111,11 +109,10 @@ fn part1(input: Input) i64 {
 
 fn part2(input: Input) i64 {
     var energy = input.energy; // TODO: is this a copy?
-    var flashers = std.ArrayList(Coord2).initCapacity(std.testing.allocator, 10 * 10) catch unreachable;
-    defer flashers.deinit();
+    var flashers = std.BoundedArray(Coord2, 100).init(0) catch unreachable;
     var step: i64 = 0;
     while (true) : (step += 1) {
-        assert(flashers.items.len == 0);
+        assert(flashers.len == 0);
         var flashed = std.StaticBitSet(100).initEmpty();
         // increase energy of all cells & track any that flash
         for (energy) |*row, y| {
@@ -130,7 +127,7 @@ fn part2(input: Input) i64 {
             }
         }
         // process flashes
-        while (flashers.items.len > 0) {
+        while (flashers.len > 0) {
             const center = flashers.pop();
             flash(&energy, center, &flashers, &flashed);
         }

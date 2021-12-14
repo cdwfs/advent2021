@@ -85,6 +85,7 @@ A list of the puzzles, and what new language/tool features I learned each day:
 - `std.mem.copy()` to copy arrays/slices
 - `std.StaticBitSet(size)` gives you the optimal representation for a bitset given `size` (a single int if it'll fit, an array if not) with the same interface on both types.
 - If `ps` is a pointer-to-struct with field `x`, then there's no need to dereference the struct to access the field (but you can). `ps.*.x` and `ps.x` are equivalent.
+- `std.BoundedArray` is a heap-less `std.ArrayList` if the max capacity is known at compile time.
 
 ### [Day 12: Passage Pathing](https://adventofcode.com/2021/day/12)
 - `std.mem.eql(u8, s1, s2)` to compare strings for equality.
@@ -95,6 +96,5 @@ A list of the puzzles, and what new language/tool features I learned each day:
 - `std.mem.doNotOptimizeAway()` does what it says on the tin
 
 ### [Day 14: Extended Polymerization](https://adventofcode.com/2021/day/14)
-- `std.BoundedArray` is a heap-less `std.ArrayList` if the max capacity is known at compile time.
 - Key memory for `std.StringHashMap` is managed by the caller; using stack-allocated strings won't work correctly.
 - `callconv(.Inline)` to force a function to be inlined at all call sites (with a compile error if that's not possible)
