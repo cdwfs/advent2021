@@ -99,3 +99,7 @@ A list of the puzzles, and what new language/tool features I learned each day:
 - Key memory for `std.StringHashMap` is managed by the caller; using stack-allocated strings won't work correctly.
 - `callconv(.Inline)` to force a function to be inlined at all call sites (with a compile error if that's not possible)
 - Use `std.time.Timer` for (up to) nanosecond-resolution timing.
+
+### [Day 15: Chiton ](https://adventofcode.com/2021/day/15)
+- `std.ArrayList()` has `.swapRemove()` for O(1) removal
+- Dijkstra took 600ms; I should try moving to A* for fun.
