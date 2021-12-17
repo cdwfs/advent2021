@@ -103,3 +103,8 @@ A list of the puzzles, and what new language/tool features I learned each day:
 ### [Day 15: Chiton ](https://adventofcode.com/2021/day/15)
 - `std.ArrayList()` has `.swapRemove()` for O(1) removal
 - Dijkstra took 600ms; I should try moving to A* for fun.
+
+### [Day 16: Packet Decoder ](https://adventofcode.com/2021/day/16)
+- Took my time and played with some new (to me) language features.
+- My `readBits()` function takes a type and does some compile-time logic to determine the correct logic to run.
+- Made an `enum`. `@intToEnum()` and `@tagName()` are handy.
