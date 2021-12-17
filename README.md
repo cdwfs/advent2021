@@ -108,3 +108,6 @@ A list of the puzzles, and what new language/tool features I learned each day:
 - Took my time and played with some new (to me) language features.
 - My `readBits()` function takes a type and does some compile-time logic to determine the correct logic to run.
 - Made an `enum`. `@intToEnum()` and `@tagName()` are handy.
+
+### [Day 17: Trick Shot ](https://adventofcode.com/2021/day/17)
+- Zig-wise, not much.
