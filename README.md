@@ -111,3 +111,10 @@ A list of the puzzles, and what new language/tool features I learned each day:
 
 ### [Day 17: Trick Shot ](https://adventofcode.com/2021/day/17)
 - Zig-wise, not much.
+
+### [Day 18: Snailfish ](https://adventofcode.com/2021/day/18)
+- Hit a compiler issue; reported as [zig#10357](https://github.com/ziglang/zig/issues/10357)
+- Implemented the incorrect algorithm correctly, and spent a ton of time debugging that. Reading comprehension FTL :(
+- non-trivial memory allocation. `allocator.create(type)` and `allocator.destroy(p)` for single-item allocations.
+- Getting better at tagged unions. `@as(TagType, tu)` to cast a union instance to its tag value.
+- Basic `std.io.Writer` use, while debugging. `std.ArrayList(u8).writer()` to get a `Writer` object, and then `writer.print()` to append string data to it.
