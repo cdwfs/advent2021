@@ -11,6 +11,28 @@ The src/ directory contains a main file for each day.  Put your code there.  The
 
 A list of the puzzles, and what new language/tool features I learned each day:
 
+### Useful VSCode settings (language-independent)
+```
+// "Suggestions" pops up a list of completions of the current word as you type.
+// Arguably useful in code; definitely not useful in comments or strings.
+"editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": false
+},
+// Suggestions are also automatically triggered when you type certain trigger characters such as '.' for struct fields.
+// Again, great in code, not so great in comments. Ideally, this would be configurable at the same granularity
+// as editor.quickSuggestions, but the best we can do is just disable it; not having suggestions pop up rampantly while
+// typing comments outweights the convenience of typing "foo." to browse all members of "foo".
+// You can still manually trigger suggestions with Ctrl+Space.
+"editor.suggestOnTriggerCharacters": false,
+// Change multi-cursor mode to my more familiar mode, where holding Alt lets you select in column mode. And Ctrl+click
+// adds multiple cursors, but I don't use that too frequently.
+"editor.multiCursorModifier": "ctrlCmd",
+// Does what it says on the tin.
+"debug.allowBreakpointsEverywhere": true,
+```
+
 ### [Day 1: Sonar Sweep](https://adventofcode.com/2021/day/1)
 - Basic Zig + VSCode integration
 - [Multiline string literals](https://ziglang.org/documentation/master/#Multiline-String-Literals)
