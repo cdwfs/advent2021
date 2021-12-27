@@ -62,7 +62,7 @@ fn freeTree(tree: *TreeNode, allocator: std.mem.Allocator) void {
     allocator.destroy(tree);
 }
 
-fn writeTree(tree: *TreeNode, writer:*std.ArrayList(u8).Writer) anyerror!void {
+fn writeTree(tree: *TreeNode, writer: *std.ArrayList(u8).Writer) anyerror!void {
     switch (tree.payload) {
         .branch => |branch| {
             try writer.print("[", .{});
@@ -77,7 +77,7 @@ fn writeTree(tree: *TreeNode, writer:*std.ArrayList(u8).Writer) anyerror!void {
     }
 }
 
-fn printTree(tree: *TreeNode, allocator:std.mem.Allocator) !void {
+fn printTree(tree: *TreeNode, allocator: std.mem.Allocator) !void {
     var tree_str = std.ArrayList(u8).init(allocator);
     defer tree_str.deinit();
     var writer = tree_str.writer();
@@ -149,7 +149,7 @@ fn reduceSplit(tree: *TreeNode, allocator: std.mem.Allocator) anyerror!bool {
                 var right = try allocator.create(TreeNode);
                 const right_value = @divFloor(leaf.value + 1, 2);
                 right.* = TreeNode{ .parent = tree, .payload = TreeNodePayload{ .leaf = TreeNodeLeaf{ .value = right_value } } };
-                tree.payload = TreeNodePayload{ .branch = TreeNodeBranch{ 
+                tree.payload = TreeNodePayload{ .branch = TreeNodeBranch{
                     .left = left,
                     .right = right,
                 } };
@@ -168,7 +168,7 @@ fn addTrees(left: *TreeNode, right: *TreeNode, allocator: std.mem.Allocator) !*T
     } } };
     left.parent = result;
     right.parent = result;
-    while(true) {
+    while (true) {
         //print("Reducing ", .{});
         //try printTree(result, allocator);
         const had_explode = try reduceExplode(result, 0, allocator);
@@ -182,8 +182,8 @@ fn addTrees(left: *TreeNode, right: *TreeNode, allocator: std.mem.Allocator) !*T
     return result;
 }
 
-fn magnitude(tree:*TreeNode) i64 {
-    return switch(tree.payload) {
+fn magnitude(tree: *TreeNode) i64 {
+    return switch (tree.payload) {
         .branch => |branch| (3 * magnitude(branch.left)) + (2 * magnitude(branch.right)),
         .leaf => |leaf| leaf.value,
     };
@@ -214,9 +214,9 @@ const Input = struct {
 };
 
 fn part1(input: Input) i64 {
-    var sum:*TreeNode = undefined;
+    var sum: *TreeNode = undefined;
     defer freeTree(sum, input.allocator);
-    for(input.lines.constSlice()) |line,i| {
+    for (input.lines.constSlice()) |line, i| {
         var line_pos: usize = 0;
         var tree = buildTree(line, &line_pos, null, input.allocator) catch unreachable;
         assert(line_pos == line.len);
@@ -231,14 +231,14 @@ fn part1(input: Input) i64 {
 }
 
 fn part2(input: Input) i64 {
-    var largest_magnitude:i64 = 0;
-    for(input.lines.constSlice()) |s1| {
-        for(input.lines.constSlice()) |s2| {
+    var largest_magnitude: i64 = 0;
+    for (input.lines.constSlice()) |s1| {
+        for (input.lines.constSlice()) |s2| {
             var s1_pos: usize = 0;
             var tree1 = buildTree(s1, &s1_pos, null, input.allocator) catch unreachable;
             var s2_pos: usize = 0;
             var tree2 = buildTree(s2, &s2_pos, null, input.allocator) catch unreachable;
-            var sum:*TreeNode = undefined;
+            var sum: *TreeNode = undefined;
             defer freeTree(sum, input.allocator);
             sum = addTrees(tree1, tree2, input.allocator) catch unreachable;
             const mag = magnitude(sum);
@@ -266,7 +266,7 @@ const part2_test_solution: ?i64 = 3993;
 const part2_solution: ?i64 = 4490;
 
 // Just boilerplate below here, nothing to see
-fn treesAreEqual(expected:*TreeNode, actual:*TreeNode, allocator:std.mem.Allocator) !void {
+fn treesAreEqual(expected: *TreeNode, actual: *TreeNode, allocator: std.mem.Allocator) !void {
     var result1 = std.ArrayList(u8).init(allocator);
     defer result1.deinit();
     var result1_writer = result1.writer();
@@ -291,12 +291,12 @@ fn testBuildTree(s: []const u8, allocator: std.mem.Allocator) !*TreeNode {
     try std.testing.expectEqualStrings(s, result.items[0..]);
     return tree;
 }
-fn testMagnitude(s: []const u8, expected:i64, allocator:std.mem.Allocator) !void {
+fn testMagnitude(s: []const u8, expected: i64, allocator: std.mem.Allocator) !void {
     var tree = try testBuildTree(s, allocator);
     defer freeTree(tree, allocator);
     try std.testing.expectEqual(expected, magnitude(tree));
 }
-fn testAddition(s1:[]const u8, s2:[]const u8, expected_sum:[]const u8, allocator:std.mem.Allocator) !void {
+fn testAddition(s1: []const u8, s2: []const u8, expected_sum: []const u8, allocator: std.mem.Allocator) !void {
     var tree1 = try testBuildTree(s1, allocator);
     var tree2 = try testBuildTree(s2, allocator);
     var actual = try addTrees(tree1, tree2, allocator);
@@ -328,10 +328,10 @@ fn testPart1() !void {
         \\[1,[[[9,3],9],[[9,0],[0,7]]]]
         \\[[[5,[7,4]],7],1]
         \\[[[[4,2],2],6],[8,7]]
-        ;
+    ;
     {
         var lines = std.mem.tokenize(u8, longer_input, "\r\n");
-        var sum:?*TreeNode = null;
+        var sum: ?*TreeNode = null;
         defer freeTree(sum.?, std.testing.allocator);
         while (lines.next()) |line| {
             var line_pos: usize = 0;
@@ -351,8 +351,6 @@ fn testPart1() !void {
         }
     }
 
-
-
     if (part1_test_solution) |solution| {
         var test_input = try Input.init(test_data, std.testing.allocator);
         defer test_input.deinit();
@@ -364,7 +362,7 @@ fn testPart1() !void {
         var input = try Input.init(data, std.testing.allocator);
         defer input.deinit();
         try std.testing.expectEqual(solution, part1(input));
-        print("part1 took {:15}ns\n", .{timer.lap()});
+        print("part1 took {d:9.3}ms\n", .{@intToFloat(f64, timer.lap()) / 1000000.0});
     }
 }
 
@@ -380,7 +378,7 @@ fn testPart2() !void {
         var input = try Input.init(data, std.testing.allocator);
         defer input.deinit();
         try std.testing.expectEqual(solution, part2(input));
-        print("part2 took {:15}ns\n", .{timer.lap()});
+        print("part2 took {d:9.3}ms\n", .{@intToFloat(f64, timer.lap()) / 1000000.0});
     }
 }
 

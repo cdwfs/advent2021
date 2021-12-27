@@ -28,10 +28,10 @@ const Input = struct {
     }
 };
 
-fn hashPair(pair: []const u8) callconv(.Inline) u16 {
+inline fn hashPair(pair: []const u8) u16 {
     return @as(u16, pair[0]) * 256 + @as(u16, pair[1]);
 }
-fn unhashPair(hash: u16) callconv(.Inline) [2]u8 {
+inline fn unhashPair(hash: u16) [2]u8 {
     return [2]u8{ @truncate(u8, hash >> 8), @truncate(u8, hash & 0xFF) };
 }
 
@@ -161,7 +161,7 @@ fn testPart1() !void {
     defer input.deinit();
     if (part1_solution) |solution| {
         try std.testing.expectEqual(solution, part1(input));
-        print("part1 took {:15}ns\n", .{timer.lap()});
+        print("part1 took {d:9.3}ms\n", .{@intToFloat(f64, timer.lap()) / 1000000.0});
     }
 }
 
@@ -177,7 +177,7 @@ fn testPart2() !void {
     defer input.deinit();
     if (part2_solution) |solution| {
         try std.testing.expectEqual(solution, part2(input));
-        print("part2 took {:15}ns\n", .{timer.lap()});
+        print("part2 took {d:9.3}ms\n", .{@intToFloat(f64, timer.lap()) / 1000000.0});
     }
 }
 

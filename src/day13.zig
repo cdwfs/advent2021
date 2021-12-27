@@ -194,7 +194,7 @@ fn testPart1() !void {
     defer input.deinit();
     if (part1_solution) |solution| {
         try std.testing.expectEqual(solution, part1(input));
-        print("part1 took {:15}ns\n", .{timer.lap()});
+        print("part1 took {d:9.3}ms\n", .{@intToFloat(f64, timer.lap()) / 1000000.0});
     }
 }
 
@@ -210,7 +210,7 @@ fn testPart2() !void {
     defer input.deinit();
     if (part2_solution) |solution| {
         try std.testing.expectEqual(solution, part2(input));
-        print("part2 took {:15}ns\n", .{timer.lap()});
+        print("part2 took {d:9.3}ms\n", .{@intToFloat(f64, timer.lap()) / 1000000.0});
     }
 }
 
