@@ -151,4 +151,5 @@ A list of the puzzles, and what new language/tool features I learned each day:
 - That's it, really. Could probably have gone with a 2D array instead of hashmaps here; the input data wasn't large enough to warrant sparse storage. But it still ran in ~1.5 seconds in a debug build, so I'm not going to sweat it.
 
 ### [Day 21: Dirac Dice](https://adventofcode.com/2021/day/21)
-- 
+- universes are fungible!
+
