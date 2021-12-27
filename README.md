@@ -107,7 +107,7 @@ A list of the puzzles, and what new language/tool features I learned each day:
 - `std.mem.copy()` to copy arrays/slices
 - `std.StaticBitSet(size)` gives you the optimal representation for a bitset given `size` (a single int if it'll fit, an array if not) with the same interface on both types.
 - If `ps` is a pointer-to-struct with field `x`, then there's no need to dereference the struct to access the field (but you can). `ps.*.x` and `ps.x` are equivalent.
-- `std.BoundedArray` is a heap-less `std.ArrayList` if the max capacity is known at compile time.
+- `std.BoundedArray` is a heap-less `std.ArrayList` if the max capacity is known at compile time. Slightly different API than ArrayList though.
 
 ### [Day 12: Passage Pathing](https://adventofcode.com/2021/day/12)
 - `std.mem.eql(u8, s1, s2)` to compare strings for equality.
@@ -140,3 +140,9 @@ A list of the puzzles, and what new language/tool features I learned each day:
 - non-trivial memory allocation. `allocator.create(type)` and `allocator.destroy(p)` for single-item allocations.
 - Getting better at tagged unions. `@as(TagType, tu)` to cast a union instance to its tag value.
 - Basic `std.io.Writer` use, while debugging. `std.ArrayList(u8).writer()` to get a `Writer` object, and then `writer.print()` to append string data to it.
+
+### [Day 19: Beacon Scanner ](https://adventofcode.com/2021/day/19)
+- Banged my head against this one for _way_ too long.
+- `std.AutoHashMap` has a `.putNoClobber()` for easy "add new entry to a hashmap"
+- TODO: Plenty of optimization potential here. The rotations could be implemented as swizzles instead of matrices. The hash maps could use a custom hash function for `Point3`. `Point3` could use a significantly lower bit count (`i16` instead of `i64`, if not smaller). Only add each scanner's offsets to known space, don't recompute them from scratch between all beacons (since pairs of scanners are guaranteed to overlap with each other). Don't restart the loop over scanners after finding a match; just keep going, as entries earlier in the array are likely to still be misses anyway.
+
