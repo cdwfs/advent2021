@@ -122,30 +122,33 @@ A list of the puzzles, and what new language/tool features I learned each day:
 - `callconv(.Inline)` to force a function to be inlined at all call sites (with a compile error if that's not possible)
 - Use `std.time.Timer` for (up to) nanosecond-resolution timing.
 
-### [Day 15: Chiton ](https://adventofcode.com/2021/day/15)
+### [Day 15: Chiton](https://adventofcode.com/2021/day/15)
 - `std.ArrayList()` has `.swapRemove()` for O(1) removal
 - Dijkstra took 600ms; I should try moving to A* for fun.
 
-### [Day 16: Packet Decoder ](https://adventofcode.com/2021/day/16)
+### [Day 16: Packet Decoder](https://adventofcode.com/2021/day/16)
 - Took my time and played with some new (to me) language features.
 - My `readBits()` function takes a type and does some compile-time logic to determine the correct logic to run.
 - Made an `enum`. `@intToEnum()` and `@tagName()` are handy.
 
-### [Day 17: Trick Shot ](https://adventofcode.com/2021/day/17)
+### [Day 17: Trick Shot](https://adventofcode.com/2021/day/17)
 - Zig-wise, not much.
 
-### [Day 18: Snailfish ](https://adventofcode.com/2021/day/18)
+### [Day 18: Snailfish](https://adventofcode.com/2021/day/18)
 - Hit a compiler issue; reported as [zig#10357](https://github.com/ziglang/zig/issues/10357)
 - Implemented the incorrect algorithm correctly, and spent a ton of time debugging that. Reading comprehension FTL :(
 - non-trivial memory allocation. `allocator.create(type)` and `allocator.destroy(p)` for single-item allocations.
 - Getting better at tagged unions. `@as(TagType, tu)` to cast a union instance to its tag value.
 - Basic `std.io.Writer` use, while debugging. `std.ArrayList(u8).writer()` to get a `Writer` object, and then `writer.print()` to append string data to it.
 
-### [Day 19: Beacon Scanner ](https://adventofcode.com/2021/day/19)
+### [Day 19: Beacon Scanner](https://adventofcode.com/2021/day/19)
 - Banged my head against this one for _way_ too long.
 - `std.AutoHashMap` has a `.putNoClobber()` for easy "add new entry to a hashmap"
 - TODO: Plenty of optimization potential here. The rotations could be implemented as swizzles instead of matrices. The hash maps could use a custom hash function for `Point3`. `Point3` could use a significantly lower bit count (`i16` instead of `i64`, if not smaller). Only add each scanner's offsets to known space, don't recompute them from scratch between all beacons (since pairs of scanners are guaranteed to overlap with each other). Don't restart the loop over scanners after finding a match; just keep going, as entries earlier in the array are likely to still be misses anyway.
 
-### [Day 20: Trench Map ](https://adventofcode.com/2021/day/20)
+### [Day 20: Trench Map](https://adventofcode.com/2021/day/20)
 - RTFD
 - That's it, really. Could probably have gone with a 2D array instead of hashmaps here; the input data wasn't large enough to warrant sparse storage. But it still ran in ~1.5 seconds in a debug build, so I'm not going to sweat it.
+
+### [Day 21: Dirac Dice](https://adventofcode.com/2021/day/21)
+- 
