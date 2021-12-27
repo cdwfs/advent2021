@@ -146,3 +146,6 @@ A list of the puzzles, and what new language/tool features I learned each day:
 - `std.AutoHashMap` has a `.putNoClobber()` for easy "add new entry to a hashmap"
 - TODO: Plenty of optimization potential here. The rotations could be implemented as swizzles instead of matrices. The hash maps could use a custom hash function for `Point3`. `Point3` could use a significantly lower bit count (`i16` instead of `i64`, if not smaller). Only add each scanner's offsets to known space, don't recompute them from scratch between all beacons (since pairs of scanners are guaranteed to overlap with each other). Don't restart the loop over scanners after finding a match; just keep going, as entries earlier in the array are likely to still be misses anyway.
 
+### [Day 20: Trench Map ](https://adventofcode.com/2021/day/20)
+- RTFD
+- That's it, really. Could probably have gone with a 2D array instead of hashmaps here; the input data wasn't large enough to warrant sparse storage. But it still ran in ~1.5 seconds in a debug build, so I'm not going to sweat it.
