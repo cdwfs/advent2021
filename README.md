@@ -153,3 +153,5 @@ A list of the puzzles, and what new language/tool features I learned each day:
 ### [Day 21: Dirac Dice](https://adventofcode.com/2021/day/21)
 - universes are fungible!
 
+### [Day 22: Reactor Reboot](https://adventofcode.com/2021/day/22)
+- Iterating a a `std.ArrayList` backwards is tricky, but the `-%` operator helps.
