@@ -158,3 +158,7 @@ A list of the puzzles, and what new language/tool features I learned each day:
 
 ### [Day 23: Amphipod](https://adventofcode.com/2021/day/23)
 - structs with `std.BoundedArray()` fields get a copy of the array data `std.ArrayList()` gets a weird half-copy, because internally it's storing a slice (pointer+len). The pointer is shared; the len is not.
+
+### [Day 24: Arithmetic Logic Unit](https://adventofcode.com/2021/day/24)
+- `std.fmt.formatIntBuf()` seems to be the `itoa()` equivalent.
+- Fun actual puzzle -- simulate a CPU, debug some assembly code, reverse-engineer an algorithm & look for patterns!
