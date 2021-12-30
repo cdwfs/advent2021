@@ -162,3 +162,6 @@ A list of the puzzles, and what new language/tool features I learned each day:
 ### [Day 24: Arithmetic Logic Unit](https://adventofcode.com/2021/day/24)
 - `std.fmt.formatIntBuf()` seems to be the `itoa()` equivalent.
 - Fun actual puzzle -- simulate a CPU, debug some assembly code, reverse-engineer an algorithm & look for patterns!
+
+### [Day 25: Sea Cucumber](https://adventofcode.com/2021/day/25)
+- predictably anticlimatic. But, done!
