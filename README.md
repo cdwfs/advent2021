@@ -38,7 +38,7 @@ A list of the puzzles, and what new language/tool features I learned each day:
 - [Multiline string literals](https://ziglang.org/documentation/master/#Multiline-String-Literals)
   - `Selection -> Switch to Ctrl+Click for Multi-Cursor` enables `Alt`+click for column select, and `Ctrl`+click for multi-cursor
 - Tests use `try expect(expr)` to fail the test if `expr` is false. `assert(expr)` doesn't seem to have the same effect.
-- The std::vector of Zig is [std.ArrayList](https://ziglang.org/documentation/master/std/#std;ArrayList).
+- The `std::vector` of Zig is [`std.ArrayList`](https://ziglang.org/documentation/master/std/#std;ArrayList).
   - Use `defer list.deinit()` to deallocate the list when it goes out of scope.
 - `std.mem.tokenize(data, "\r\n")` to get a `TokenIterator` to iterate over lines in text data. `while(iter.next()) |str| {}` to process things from the iterator until it's empty.
 - `std.fmt.parseInt()` to convert a string to an integer.
@@ -51,13 +51,12 @@ A list of the puzzles, and what new language/tool features I learned each day:
 - How to trigger tests from VSCode
 - Basic enum and struct usage
 - To unconditionally unwrap optional values, use `value.?`
-- `if` expressions (which I ultimately replaces with `switch` expressions anyway)
+- `if` expressions (which I ultimately replaced with `switch` expressions anyway)
 - Weird comptime error when using try `expectEquals(150, myfunc(x))` is due to `expectEquals()` using the type of the first parameter to determine the second. The workaround is to use `@as(u32, 150)` to cast the expected result away from `comptime_int`, but it's a [known wart](https://github.com/ziglang/zig/issues/4437) with a few proposed fixes in the works.
-- 
 
 ### [Day 3: Binary Diagnostic](https://adventofcode.com/2021/day/3)
 - How to *debug* tests from VSCode? F5 doesn't work any more. If I switch the tasks.json back to `"build", "day03"` then it can't find my breakpoints, because main() is empty and everything gets stripped out.
-- This whole comptime nonsense is getting annoying real fast. I have to resort to `@as(i64, N)` instead of `N` far more often than I'd like.
+- The compiler is _very_ aggressive about pushing things to comptime. I have to resort to `@as(i64, N)` instead of `N` far more often than I'd like.
 - `ArrayList.ensureTotalCapacity()` is akin to `.reserve()`, not `.resize()`. You still need to `.append()` items one at a time.
 - Not being able to initialize a local loop counter for cases where I'm not iterating over a collection is mildly annoying.
 
@@ -73,7 +72,7 @@ A list of the puzzles, and what new language/tool features I learned each day:
 - `@compileLog()` lets you debug-print in compile-time code; may be useful at some point.
 
 ### [Day 5: Hydrothermal Venture](https://adventofcode.com/2021/day/5)
-- [ZLS](https://github.com/zigtools/zls) is totally work configuring properly. F12 works! Style warnings! API docs on mouse hover!
+- [ZLS](https://github.com/zigtools/zls) is now working properly. Maybe I forgot to configure it earlier? F12 works! Style warnings! API docs on mouse hover!
 - There's some big breaking API changes going on in Zig 0.9.0-dev that I happened to catch at the wrong time, so the stdlib functions I was using and the API docs I was reading didn't always match up. Woops!
 - Otherwise, no new concepts. This one felt pretty refreshingly straightforward.
 
@@ -82,11 +81,11 @@ A list of the puzzles, and what new language/tool features I learned each day:
 - `array[0..]` gives the array as a slice
 - fish are fungible.
 - You sure do get integer overflow errors if you use too small a variable at runtime! (unless you use one of the fancy wrapping/saturating operators).
-- You can't `.initCapacity()` or `.ensureTotalCapacity()` in a struct field's default initializer because default values for these fields are computed at compile time and stored as constants, and thus can't allocate memory. This preserves Zig's "if it doesn't look like a function call, it's not a function call" guarantee: `MyType{}` isn't a function call.
+- You can't `.initCapacity()` or `.ensureTotalCapacity()` in a struct field's default initializer, because default values for these fields are computed at compile time and stored as constants, and thus can't allocate memory. This preserves Zig's "if it doesn't look like a function call, it's not a function call" guarantee: `MyType{}` isn't a function call.
 
 ### [Day 7: The Treachery of Whales](https://adventofcode.com/2021/day/7)
 - `std.math.maxInt(type)` for maximum value for a type
-- `@divFloor()` and `divTrunc()` is required for integer division.
+- `@divFloor()` and `divTrunc()` are required for integer division.
 - Just brute-forced part 2, it was fine.
 
 ### [Day 8: Seven Segment Search](https://adventofcode.com/2021/day/8)
