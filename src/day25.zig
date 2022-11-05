@@ -66,9 +66,9 @@ fn testSimdSoa() !void {
     try array3.ensureTotalCapacity(std.testing.allocator, ELEM_COUNT);
 
     var i: usize = 0;
-    var rng = std.rand.DefaultPrng.init(0).random();
+    var rng = std.rand.DefaultPrng.init(0);
     while (i < ELEM_COUNT) : (i += 1) {
-        const p = Particle.initRandom(rng);
+        const p = Particle.initRandom(rng.random());
         array1.appendAssumeCapacity(p);
         array2.appendAssumeCapacity(p);
         array3.appendAssumeCapacity(p.vel);
