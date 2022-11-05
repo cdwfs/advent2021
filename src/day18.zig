@@ -194,7 +194,6 @@ const Input = struct {
     allocator: std.mem.Allocator,
 
     pub fn init(input_text: []const u8, allocator: std.mem.Allocator) !@This() {
-        _ = allocator;
         var input = Input{
             .lines = try std.BoundedArray([]const u8, 100).init(0),
             .allocator = allocator,

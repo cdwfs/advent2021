@@ -8,7 +8,6 @@ const Input = struct {
     rules: std.StringHashMap(u8) = undefined,
 
     pub fn init(input_text: []const u8, allocator: std.mem.Allocator) !@This() {
-        _ = allocator;
         var input = Input{
             .rules = std.StringHashMap(u8).init(allocator),
         };

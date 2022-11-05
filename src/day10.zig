@@ -7,7 +7,6 @@ const Input = struct {
     lines: std.ArrayList([]const u8),
 
     pub fn init(input_text: []const u8, allocator: std.mem.Allocator) !@This() {
-        _ = allocator;
         var input = Input{
             .lines = std.ArrayList([]const u8).initCapacity(allocator, 110) catch unreachable,
         };

@@ -10,7 +10,6 @@ const Input = struct {
     stack4: [2]u8,
 
     pub fn init(input_text: []const u8, allocator: std.mem.Allocator) !@This() {
-        _ = allocator;
 
         var lines = std.mem.tokenize(u8, input_text, "\r\n");
         _ = lines.next();

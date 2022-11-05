@@ -7,7 +7,6 @@ const Input = struct {
     bits: std.DynamicBitSet = undefined,
 
     pub fn init(input_text: []const u8, allocator: std.mem.Allocator) !@This() {
-        _ = allocator;
         var input = Input{};
         errdefer input.deinit();
 
@@ -28,7 +27,6 @@ const Input = struct {
     }
     pub fn deinit(self: *@This()) void {
         self.bits.deinit();
-        _ = self;
     }
 };
 
