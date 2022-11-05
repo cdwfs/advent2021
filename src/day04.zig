@@ -1,7 +1,7 @@
 const std = @import("std");
 const util = @import("util.zig");
 
-const data = @embedFile("../data/day04.txt");
+const data = @embedFile("data/day04.txt");
 
 const BingoBoard = struct {
     mask: u25 = 0,

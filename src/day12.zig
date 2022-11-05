@@ -1,7 +1,7 @@
 const std = @import("std");
 const util = @import("util.zig");
 
-const data = @embedFile("../data/day12.txt");
+const data = @embedFile("data/day12.txt");
 
 const Input = struct {
     nodes: std.StringHashMap(std.ArrayList([]const u8)),

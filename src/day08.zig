@@ -1,7 +1,7 @@
 const std = @import("std");
 const util = @import("util.zig");
 
-const data = @embedFile("../data/day08.txt");
+const data = @embedFile("data/day08.txt");
 
 const Display = struct {
     digits: [10][]const u8 = .{""} ** 10,

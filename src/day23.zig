@@ -1,7 +1,7 @@
 const std = @import("std");
 const util = @import("util.zig");
 
-const data = @embedFile("../data/day23.txt");
+const data = @embedFile("data/day23.txt");
 
 const Input = struct {
     stack1: [2]u8,

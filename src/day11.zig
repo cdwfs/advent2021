@@ -1,7 +1,7 @@
 const std = @import("std");
 const util = @import("util.zig");
 
-const data = @embedFile("../data/day11.txt");
+const data = @embedFile("data/day11.txt");
 
 const Input = struct {
     energy: [10][10]u8 = undefined,

@@ -1,7 +1,7 @@
 const std = @import("std");
 const util = @import("util.zig");
 
-const data = @embedFile("../data/day10.txt");
+const data = @embedFile("data/day10.txt");
 
 const Input = struct {
     lines: std.ArrayList([]const u8),

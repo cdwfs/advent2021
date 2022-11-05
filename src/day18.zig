@@ -1,7 +1,7 @@
 const std = @import("std");
 const util = @import("util.zig");
 
-const data = @embedFile("../data/day18.txt");
+const data = @embedFile("data/day18.txt");
 const TreeNodeLeaf = struct {
     value: i64,
 };

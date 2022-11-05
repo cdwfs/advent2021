@@ -9,7 +9,7 @@ const Str = []const u8;
 const util = @import("util.zig");
 const gpa = util.gpa;
 
-const data = @embedFile("../data/day01.txt");
+const data = @embedFile("data/day01.txt");
 
 fn parseInput(input_text: []const u8) std.ArrayList(u64) {
     var list = std.ArrayList(u64).init(std.testing.allocator);

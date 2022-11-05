@@ -9,7 +9,7 @@ const Str = []const u8;
 const util = @import("util.zig");
 const gpa = util.gpa;
 
-const data = @embedFile("../data/day02.txt");
+const data = @embedFile("data/day02.txt");
 
 const MoveDir = enum {
     forward,

@@ -1,7 +1,7 @@
 const std = @import("std");
 const util = @import("util.zig");
 
-const data = @embedFile("../data/day06.txt");
+const data = @embedFile("data/day06.txt");
 
 const Input = struct {
     fish_ages: std.ArrayList(u8) = std.ArrayList(u8).init(std.testing.allocator),

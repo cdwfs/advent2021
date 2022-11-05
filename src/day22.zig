@@ -1,7 +1,7 @@
 const std = @import("std");
 const util = @import("util.zig");
 
-const data = @embedFile("../data/day22.txt");
+const data = @embedFile("data/day22.txt");
 
 const Region3 = struct {
     on: bool,

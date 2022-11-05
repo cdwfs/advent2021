@@ -1,7 +1,7 @@
 const std = @import("std");
 const util = @import("util.zig");
 
-const data = @embedFile("../data/day16.txt");
+const data = @embedFile("data/day16.txt");
 
 const Input = struct {
     bits: std.DynamicBitSet = undefined,

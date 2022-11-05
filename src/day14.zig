@@ -1,7 +1,7 @@
 const std = @import("std");
 const util = @import("util.zig");
 
-const data = @embedFile("../data/day14.txt");
+const data = @embedFile("data/day14.txt");
 
 const Input = struct {
     template: []const u8 = undefined,

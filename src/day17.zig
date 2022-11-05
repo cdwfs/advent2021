@@ -1,7 +1,7 @@
 const std = @import("std");
 const util = @import("util.zig");
 
-const data = @embedFile("../data/day17.txt");
+const data = @embedFile("data/day17.txt");
 
 const Input = struct {
     x_min: i64,

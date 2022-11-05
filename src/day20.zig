@@ -1,7 +1,7 @@
 const std = @import("std");
 const util = @import("util.zig");
 
-const data = @embedFile("../data/day20.txt");
+const data = @embedFile("data/day20.txt");
 
 const Input = struct {
     enhancement: [512]u8 = undefined,

@@ -1,7 +1,7 @@
 const std = @import("std");
 const util = @import("util.zig");
 
-const data = @embedFile("../data/day24.txt");
+const data = @embedFile("data/day24.txt");
 
 const Reg = enum(u2) {
     W = 0,

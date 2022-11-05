@@ -1,7 +1,7 @@
 const std = @import("std");
 const util = @import("util.zig");
 
-const data = @embedFile("../data/day03.txt");
+const data = @embedFile("data/day03.txt");
 
 fn parseInput(input_text: []const u8) std.ArrayList([]const u8) {
     var list = std.ArrayList([]const u8).init(std.testing.allocator);

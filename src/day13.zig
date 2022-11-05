@@ -1,7 +1,7 @@
 const std = @import("std");
 const util = @import("util.zig");
 
-const data = @embedFile("../data/day13.txt");
+const data = @embedFile("data/day13.txt");
 
 const Coord2 = struct {
     x: usize,

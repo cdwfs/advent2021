@@ -1,7 +1,7 @@
 const std = @import("std");
 const util = @import("util.zig");
 
-const data = @embedFile("../data/day15.txt");
+const data = @embedFile("data/day15.txt");
 
 const Input = struct {
     risks: [100][100]i64 = undefined,

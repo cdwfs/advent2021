@@ -1,7 +1,7 @@
 const std = @import("std");
 const util = @import("util.zig");
 
-const data = @embedFile("../data/day07.txt");
+const data = @embedFile("data/day07.txt");
 
 const Input = struct {
     positions: std.ArrayList(u11) = std.ArrayList(u11).init(std.testing.allocator),

@@ -1,7 +1,7 @@
 const std = @import("std");
 const util = @import("util.zig");
 
-const data = @embedFile("../data/day09.txt");
+const data = @embedFile("data/day09.txt");
 
 const Input = struct {
     heightmap: [100][100]u8 = undefined,
