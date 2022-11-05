@@ -6,6 +6,7 @@ const data = @embedFile("data/day15.txt");
 const Input = struct {
     risks: [100][100]i64 = undefined,
     dim: usize = undefined,
+    allocator: std.mem.Allocator = undefined,
 
     pub fn init(input_text: []const u8, allocator: std.mem.Allocator) !@This() {
         var input = Input{};
@@ -19,6 +20,7 @@ const Input = struct {
             }
         }
         input.dim = y;
+        input.allocator = allocator;
 
         return input;
     }
@@ -48,7 +50,7 @@ fn part1(input: Input) i64 {
             v.* = UNVISITED;
         }
     }
-    var candidates = std.ArrayList(Coord2).initCapacity(std.testing.allocator, 100 * 100) catch unreachable;
+    var candidates = std.ArrayList(Coord2).initCapacity(input.allocator, 100 * 100) catch unreachable;
     defer candidates.deinit();
 
     candidates.appendAssumeCapacity(Coord2{ .x = input.dim - 1, .y = input.dim - 1 });
@@ -63,7 +65,6 @@ fn part1(input: Input) i64 {
         // For A*, add a conservative heuristic of the remaining cost (e.g. Manhattan distance).
         for (candidates.items) |c, i| {
             const h: i64 = @intCast(i64, c.y + c.x);
-            _ = h;
             const r = lowest[c.y][c.x] + h;
             if (r < min_risk) {
                 min_risk = r;
@@ -110,7 +111,7 @@ fn part2(input: Input) i64 {
             v.* = UNVISITED;
         }
     }
-    var candidates = std.ArrayList(Coord2).initCapacity(std.testing.allocator, 500 * 500) catch unreachable;
+    var candidates = std.ArrayList(Coord2).initCapacity(input.allocator, 500 * 500) catch unreachable;
     defer candidates.deinit();
 
     const scale_dim = 5 * input.dim;
@@ -127,7 +128,7 @@ fn part2(input: Input) i64 {
         // In this case it doesn't really make a huge difference in the visit count, and adding
         // the heuristic doubles the running time (???), so I've left it commented out.
         for (candidates.items) |c, i| {
-            const r = lowest[c.y][c.x]; // + @intCast(i64, c.y + c.x);
+            const r = lowest[c.y][c.x];// + @intCast(i64, c.y + c.x);
             if (r < min_risk) {
                 min_risk = r;
                 min_risk_index = i;
@@ -166,15 +167,15 @@ const part2_solution: ?i64 = 2976;
 
 // Just boilerplate below here, nothing to see
 
-fn testPart1() !void {
-    var test_input = try Input.init(test_data, std.testing.allocator);
+fn testPart1(allocator: std.mem.Allocator) !void {
+    var test_input = try Input.init(test_data, allocator);
     defer test_input.deinit();
     if (part1_test_solution) |solution| {
         try std.testing.expectEqual(solution, part1(test_input));
     }
 
     var timer = try std.time.Timer.start();
-    var input = try Input.init(data, std.testing.allocator);
+    var input = try Input.init(data, allocator);
     defer input.deinit();
     if (part1_solution) |solution| {
         try std.testing.expectEqual(solution, part1(input));
@@ -182,15 +183,15 @@ fn testPart1() !void {
     }
 }
 
-fn testPart2() !void {
-    var test_input = try Input.init(test_data, std.testing.allocator);
+fn testPart2(allocator: std.mem.Allocator) !void {
+    var test_input = try Input.init(test_data, allocator);
     defer test_input.deinit();
     if (part2_test_solution) |solution| {
         try std.testing.expectEqual(solution, part2(test_input));
     }
 
     var timer = try std.time.Timer.start();
-    var input = try Input.init(data, std.testing.allocator);
+    var input = try Input.init(data, allocator);
     defer input.deinit();
     if (part2_solution) |solution| {
         try std.testing.expectEqual(solution, part2(input));
@@ -199,16 +200,19 @@ fn testPart2() !void {
 }
 
 pub fn main() !void {
-    try testPart1();
-    try testPart2();
+    var arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
+    defer arena.deinit();
+    const allocator = arena.allocator();
+    try testPart1(allocator);
+    try testPart2(allocator);
 }
 
 test "part1" {
-    try testPart1();
+    try testPart1(std.testing.allocator);
 }
 
 test "part2" {
-    try testPart2();
+    try testPart2(std.testing.allocator);
 }
 
 // Useful stdlib functions

@@ -8,9 +8,9 @@ const Input = struct {
     stack2: [2]u8,
     stack3: [2]u8,
     stack4: [2]u8,
+    allocator: std.mem.Allocator,
 
     pub fn init(input_text: []const u8, allocator: std.mem.Allocator) !@This() {
-
         var lines = std.mem.tokenize(u8, input_text, "\r\n");
         _ = lines.next();
         _ = lines.next();
@@ -22,6 +22,7 @@ const Input = struct {
             .stack2 = [2]u8{ row2[5], row1[5] },
             .stack3 = [2]u8{ row2[7], row1[7] },
             .stack4 = [2]u8{ row2[9], row1[9] },
+            .allocator = allocator,
         };
         errdefer input.deinit();
 
@@ -334,15 +335,15 @@ const part2_solution: ?i64 = 49936;
 
 // Just boilerplate below here, nothing to see
 
-fn testPart1() !void {
-    var test_input = try Input.init(test_data, std.testing.allocator);
+fn testPart1(allocator: std.mem.Allocator) !void {
+    var test_input = try Input.init(test_data, allocator);
     defer test_input.deinit();
     if (part1_test_solution) |solution| {
         try std.testing.expectEqual(solution, part1(test_input));
     }
 
     var timer = try std.time.Timer.start();
-    var input = try Input.init(data, std.testing.allocator);
+    var input = try Input.init(data, allocator);
     defer input.deinit();
     if (part1_solution) |solution| {
         try std.testing.expectEqual(solution, part1(input));
@@ -350,15 +351,15 @@ fn testPart1() !void {
     }
 }
 
-fn testPart2() !void {
-    var test_input = try Input.init(test_data, std.testing.allocator);
+fn testPart2(allocator: std.mem.Allocator) !void {
+    var test_input = try Input.init(test_data, allocator);
     defer test_input.deinit();
     if (part2_test_solution) |solution| {
         try std.testing.expectEqual(solution, part2(test_input));
     }
 
     var timer = try std.time.Timer.start();
-    var input = try Input.init(data, std.testing.allocator);
+    var input = try Input.init(data, allocator);
     defer input.deinit();
     if (part2_solution) |solution| {
         try std.testing.expectEqual(solution, part2(input));
@@ -367,16 +368,19 @@ fn testPart2() !void {
 }
 
 pub fn main() !void {
-    try testPart1();
-    try testPart2();
+    var arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
+    defer arena.deinit();
+    const allocator = arena.allocator();
+    try testPart1(allocator);
+    try testPart2(allocator);
 }
 
 test "part1" {
-    try testPart1();
+    try testPart1(std.testing.allocator);
 }
 
 test "part2" {
-    try testPart2();
+    try testPart2(std.testing.allocator);
 }
 
 // Useful stdlib functions
