@@ -108,15 +108,19 @@ fn part2(input: Input) i64 {
         mask_abcdf.setUnion(mask_bd);
         mask_abcdf.setUnion(mask_cf);
         assert(mask_abcdf.count() == 5);
+        var load_bearing_bool:bool = true; // TODO: test fails if this declaration is removed?
+        _ = load_bearing_bool;
         for (display.digits) |digit, i| {
             if (digit.len == 6) {
                 if ((display.digit_masks[i].mask & mask_abcdf.mask) == mask_abcdf.mask) {
                     digit_index_for_numeral[9] = i;
                     numeral_for_digit_index[i] = 9;
+                    //found = true;
                     break;
                 }
             }
         }
+        //assert(found);
         // The bit in 9 that is NOT A,B,C,D,F must be G.
         const mask_g = std.bit_set.IntegerBitSet(7){
             .mask = display.digit_masks[digit_index_for_numeral[9]].mask ^ mask_abcdf.mask,
